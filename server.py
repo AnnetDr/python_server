@@ -58,7 +58,7 @@ def draw_graph(excel_file_name):
     fig = plt.figure()
     plt.plot(range(2))
     plt.plot(exel_data['ШБУ'])
-    plt.title('Значения ШБУ')
+    fig.suptitle("Значения ШБУ", fontsize=14)
     fig.savefig('static/graph.png', dpi=fig.dpi)
 
 
