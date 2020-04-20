@@ -102,7 +102,7 @@ def initialize_asdf1():
                 
         except:
             error_message="Выберите файл"
-            return render_template('components.html', error_message=error_message)
+            return render_template('components.html', error_message=error_message, uploads = get_upload_file_list())
             
     return render_template('components.html', uploads=get_upload_file_list())
     
