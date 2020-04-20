@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+  <meta name="msapplication-tap-highlight" content="no">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="./static/cactus.ico">
+  <link href="./static/cactus.ico" rel="icon">
+
+  <link href="" rel="stylesheet">
+
+  <title>Python. Step 1</title>
+
+
+<link href="./static/style.css" rel="stylesheet"></head>
+
+<body> 
+<header>
+  <nav class="navbar navbar-default active">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="" title="">
+          <img src="./static/cactus.ico" class="navbar-logo-img" alt="">
+          My first app with python
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p>
+              <a href="./templates/components.html" class="btn btn-default navbar-btn" title="">Components</a>
+            </p>
+          </li>
+
+        </ul>
+      </div> 
+    </div>
+  </nav>
+</header>
+
+<br>
+<br>
+  <div class="container" style="font-size: 14pt;">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+	  
+        <h3 class="template-title-example">Excel-таблица</h3>
+		
+	    <form method="post" enctype="multipart/form-data">
+			<input type="file" name="excel_file"  accept=".xls,.xlsx"/>
+			<input type="submit" value="Загрузить файл">
+		</form>
+		
+		
+		{% if error_message %}
+		    <p>{{ error_message }}</p>
+		{% endif %}
+		
+        <table border="1" name="excel_table">
+        <caption>Таблица</caption>
+        {% if excel_cells %}
+	        {% for one_row in excel_cells%}
+            <tr>		
+	        {% for one_cell in one_row%}
+                <td>{{one_cell}}</td>
+            {%endfor%}
+                </tr>
+            {%endfor%}
+		{% endif %}
+	    </table>       
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="template-example">
+          <h2 class="template-title-example">Список загрузок</h2>
+          
+		    <div class="form-group">
+			 <form method="post" action="/" enctype="multipart/form-data" id="form_graph" >
+                <select class="form-control" name="graph_name" form="form_graph" >
+                {% if uploads %}
+	                {% for uploaded_file in uploads%}
+                        <option value="{{ uploaded_file }}"> {{ uploaded_file }} </option>	
+                    {%endfor%}
+		        {% endif %}
+                </select>
+				<p><input type="submit" value="Отправить"></p>
+			 </form>
+			 {% if graph_img %}
+		          <img src="./static/graph.png" alt="Выберите элемент из списка загрузок" />
+		     {% endif %}
+
+            </div>
+        </div>
+      </div>
+	  
+    </div>
+  </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    navActivePage();
+    scrollRevelation('.reveal');
+  });
+</script>
+
+<script type="text/javascript" src="./static/script.js"></script></body>
+
+</html>

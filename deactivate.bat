@@ -1,0 +1,1 @@
+call .\Scripts\deactivate.bat
