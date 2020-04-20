@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
+pyvenv.cfg
+database.txt
+static/graph.png
 
 # C extensions
 *.so

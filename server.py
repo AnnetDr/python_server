@@ -21,7 +21,7 @@ def add_uploaded_file_to_list(full_path):
     for name in saved_names:
         if name == file_name:
             file_name = ""
-    if file_name is not "":
+    if file_name != "":
         database.write(file_name)
         database.write("\n")
     database.close()
@@ -91,7 +91,7 @@ def initialize_asdf1():
             
             else:
                 graph_name = request.form['graph_name']
-                if graph_name is not "":
+                if graph_name != "":
                     full_graph_name = EXCEL_FILES_UPLOADED_PATH + graph_name
                     draw_graph(full_graph_name)
                     return render_template('components.html', 
